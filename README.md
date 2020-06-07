@@ -26,8 +26,9 @@ Tested up to: 5.4.2
 
 ## Usage
 
+1. Edit a page or post.
 1. Add a code block.
-2. Insert code that uses the Locomotive Scroll markup syntax. E.g., `<section>`, `<div>`, `<a>`, and `<p>`.
+1. In the code block, insert code that uses the Locomotive Scroll markup syntax. E.g., `<section>`, `<div>`, `<a>`, `<img>`, and `<p>`.
 
 ```html
 <p data-scroll data-scroll-delay="0.13" data-scroll-speed="6">
@@ -37,6 +38,11 @@ Hashtag eu roof party magna heirloom craft beer, aesthetic tacos direct trade ho
 Dummy text? More like dummy thicc text, amirite?
 </p>
 ```
+
+There are more examples on CodePen.
+
+- [Locomotive Scroll Demo I](https://codepen.io/marklchaves/pen/RwrwRxz)
+- [Locomotive Scroll Demo III](https://codepen.io/marklchaves/pen/PoZqEoM)
 
 ---
 
