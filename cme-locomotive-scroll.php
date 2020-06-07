@@ -43,14 +43,10 @@ add_action('wp_enqueue_scripts', 'enqueue_locomotive_scroll_styles');
 
 function enqueue_locomotive_scroll_javascript()
 {
-    // Add to footer section.
-    wp_register_script(CME_LOCOMOTIVE_SCROLL_NAME, 'https://cdn.jsdelivr.net/gh/locomotivemtl/locomotive-scroll/dist/locomotive-scroll.min.js', array(), CME_LOCOMOTIVE_SCROLL_VERSION, true);
+    // Must be in the header section.
+    wp_register_script(CME_LOCOMOTIVE_SCROLL_NAME, 'https://cdn.jsdelivr.net/gh/locomotivemtl/locomotive-scroll/dist/locomotive-scroll.min.js', array(), CME_LOCOMOTIVE_SCROLL_VERSION, false);
 
     wp_enqueue_script(CME_LOCOMOTIVE_SCROLL_NAME);
-
-    wp_register_script(CME_LOCOMOTIVE_SCROLL_NAME.'_PLUGIN', 'https://cdn.jsdelivr.net/gh/marklchaves/cme-locomotive-scroll/dist/cme-locomotive-scroll.js', array(), CME_LOCOMOTIVE_SCROLL_PLUGIN_VERSION, true);
-
-    wp_enqueue_script(CME_LOCOMOTIVE_SCROLL_NAME.'_PLUGIN');
 }
 add_action('wp_enqueue_scripts', 'enqueue_locomotive_scroll_javascript');
 
@@ -59,6 +55,14 @@ function cme_locomotive_scroll_add_script_wp_footer()
 {
 ?>
     <script>
+        (function() {
+            let bodyDataScrollContainer = document.querySelector("body");
+            bodyDataScrollContainer.setAttribute("data-scroll-container", "");
+
+            let mainDataScrollSection = document.querySelector("main");
+            mainDataScrollSection.setAttribute("data-scroll-section", "");
+        })();
+
         const scroll = new LocomotiveScroll({
             el: document.querySelector('[data-scroll-container]'),
             smooth: true
